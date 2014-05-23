@@ -43,9 +43,12 @@ The following files are available for the train and test data. Their description
 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-Notes: 
+Script run_analysis.R transformation: 
 ======
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the text file.
 
-For more information about this dataset contact: activityrecognition@smartlab.ws
+Script has two internal functions: run() and load_data(). For processing data you should use run(). Additionally you can tell what directory to use: run(data_path = "new_path/dir/data/")
+
+Script joins both test and training data toghether with their proper labels, subject IDs and activity titles. Then only measurements on the mean and standart deviation are extracted. From that data script creates new table grouped by subject ID and activity name and mean value for each measurement.
+
+Resulting set is written in file tidy_data.txt.
+Script doesn't register variables in global environment.
